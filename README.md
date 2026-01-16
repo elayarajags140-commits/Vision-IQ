@@ -1,2 +1,3 @@
 # Vision-IQ
-Vision IQ – An AI-inspired learning companion UI with student, career, professional and hobby modes.
+Vision IQ – A frontend AI learning companion UI with student, career, professional, and hobby modes.
+
