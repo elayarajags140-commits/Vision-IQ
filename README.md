@@ -76,6 +76,6 @@ Vision-IQ/
 
 ## Usage
 
-1. Clone the repository:  
-   ```bash
-   
+1. Clone the repository: (git clone) 
+   ```bash  
+    https://github.com/elayarajags140-commits/Vision-IQ.git
