@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Vision IQ — Your AI Learning Companion</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto&family=Source+Sans+Pro&family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- MODE SELECTOR -->
+    <div class="mode-selector">
+      <button class="mode-btn student active" data-mode="student">
+        <span>🎓</span> Student
+      </button>
+      <button class="mode-btn career" data-mode="career">
+        <span>💼</span> Career
+      </button>
+      <button class="mode-btn pro" data-mode="pro">
+        <span>⚡</span> Professional
+      </button>
+      <button class="mode-btn hobby" data-mode="hobby">
+        <span>🌟</span> Hobby
+      </button>
+    </div>
+
+    <div class="container">
+      <header>
+        <div class="logo">VIQ</div>
+        <h1 class="header-glow">Vision IQ</h1>
+        <div class="settings" id="settingsBtn">⚓</div>
+        <div class="theme-toggle" id="themeToggle">🌑</div>
+      </header>
+
+      <div class="grid" id="mainGrid">
+        <!-- Cards will be dynamically generated -->
+      </div>
+    </div>
+
+    <div id="chatToggleBtn" class="pulse-glow">💡</div>
+
+    <div class="center-chat-panel" id="centerChat">
+      <div class="chat-body" id="centerChatBody">
+        <div class="msg bot slide-in">
+          <span id="greetingText"
+            >🎓 Hello! I'm your study buddy! Need help with homework, exams, or
+            learning new subjects?</span
+          >
+          <span class="chat-time">Just now</span>
+
+          <div class="welcome-suggestions" id="welcomeSuggestions">
+            <!-- Dynamic suggestions will go here -->
+          </div>
+        </div>
+      </div>
+      <div class="input-bar">
+        <input id="centerChatInput" placeholder="Ask me anything..." />
+        <button id="centerSendBtn">🚀</button>
+      </div>
+    </div>
+
+    <div class="center-card-panel" id="centerCard">
+      <h2 id="cardTitle"></h2>
+      <div id="cardContent"></div>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel">
+      <h3>
+        Settings
+        <span id="closeSettings" style="float: right; cursor: pointer">✖</span>
+        
+      </h3>
+
+      <div class="settings-category">
+        <h4>Appearance</h4>
+        <label>Background Presets:</label>
+        <div style="display: flex; flex-wrap: wrap">
+          <button class="bgPreset" style="background: #0f1724"></button>
+          <button class="bgPreset" style="background: #1e293b"></button>
+          <button class="bgPreset" style="background: #334155"></button>
+          <button class="bgPreset" style="background: #475569"></button>
+          <button class="bgPreset" style="background: #64748b"></button>
+          <button class="bgPreset" style="background: #94a3b8"></button>
+          <button class="bgPreset" style="background: #f43f5e"></button>
+          <button class="bgPreset" style="background: #f97316"></button>
+          <button class="bgPreset" style="background: #10b981"></button>
+          <button class="bgPreset" style="background: #3b82f6"></button>
+        </div>
+        <label>Upload Wallpaper:</label>
+        <input type="file" id="bgImagePicker" accept="image/*" />
+      </div>
+
+      <div class="settings-category">
+        <h4>Typography</h4>
+        <label>Font Family:</label>
+        <select id="fontSelect">
+          <option value="'Inter', system-ui">Inter</option>
+          <option value="'Roboto', sans-serif">Roboto</option>
+          <option value="'Source Sans Pro', sans-serif">Source Sans Pro</option>
+          <option value="'Fira Code', monospace">Fira Code</option>
+          <option value="'Open Sans', sans-serif">Open Sans</option>
+          <option value="'Lato', sans-serif">Lato</option>
+          <option value="'Montserrat', sans-serif">Montserrat</option>
+        </select>
+      </div>
+
+      <div class="settings-category">
+        <h4>Preferences</h4>
+        <label>Animation Speed:</label>
+        <select id="animationSpeed">
+          <option value="fast">Fast</option>
+          <option value="normal" selected>Normal</option>
+          <option value="slow">Slow</option>
+        </select>
+
+        <button
+          id="resetSettings"
+          style="background: #f43f5e; margin-top: 10px"
+        >
+          Reset to Defaults
+        </button>
+      </div>
+    </div>
+
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <script src="web.js"></script>
+  </body>
+</html>
