@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VisionIQ — AI Coding Interview Assistant</title>
+    <link rel="stylesheet" href="visioniq-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Fira+Code&family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Code Editor Dependencies -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+  </head>
+  <body>
+    <!-- MODE SELECTOR - Now for Programming Languages -->
+    <div class="mode-selector">
+      <button
+        class="mode-btn js active"
+        data-mode="javascript"
+        aria-label="JavaScript mode"
+      >
+        <span>🟨</span> JavaScript
+      </button>
+      <button
+        class="mode-btn python"
+        data-mode="python"
+        aria-label="Python mode"
+      >
+        <span>🐍</span> Python
+      </button>
+      <button class="mode-btn java" data-mode="java" aria-label="Java mode">
+        <span>☕</span> Java
+      </button>
+      <button class="mode-btn cpp" data-mode="cpp" aria-label="C++ mode">
+        <span>⚡</span> C++
+      </button>
+    </div>
+
+    <div class="container">
+      <header>
+        <div class="logo">VIQ</div>
+        <h1 class="header-glow">
+          VisionIQ <span class="subtitle">Coding Assistant</span>
+        </h1>
+        <div
+          class="settings"
+          id="settingsBtn"
+          role="button"
+          aria-label="Open settings"
+        >
+          ⚙️
+        </div>
+        <div
+          class="theme-toggle"
+          id="themeToggle"
+          role="button"
+          aria-label="Toggle theme"
+        >
+          🌑
+        </div>
+      </header>
+
+      <!-- PROBLEM SELECTION SIDEBAR -->
+      <div class="problem-sidebar" id="problemSidebar">
+        <h3>Problems <span class="badge" id="problemCount">120</span></h3>
+        <div class="difficulty-filter">
+          <button class="difficulty-btn active" data-difficulty="all">
+            All
+          </button>
+          <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+          <button class="difficulty-btn" data-difficulty="medium">
+            Medium
+          </button>
+          <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+        </div>
+        <div class="problem-list" id="problemList">
+          <!-- Problems will be dynamically generated -->
+        </div>
+      </div>
+
+      <!-- MAIN EDITOR AREA -->
+      <div class="editor-container" id="editorContainer">
+        <div class="problem-header">
+          <h2 id="problemTitle">Two Sum</h2>
+          <div class="problem-meta">
+            <span class="difficulty easy">Easy</span>
+            <span class="acceptance">57% Accepted</span>
+            <span class="companies">Google, Amazon, Microsoft</span>
+          </div>
+        </div>
+
+        <div class="problem-description" id="problemDescription">
+          <p>
+            Given an array of integers <code>nums</code> and an integer
+            <code>target</code>, return indices of the two numbers such that
+            they add up to <code>target</code>.
+          </p>
+          <p>
+            You may assume that each input would have
+            <strong>exactly one solution</strong>, and you may not use the same
+            element twice.
+          </p>
+          <p>You can return the answer in any order.</p>
+
+          <div class="example">
+            <h4>Example 1:</h4>
+            <pre>
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</pre
+            >
+          </div>
+        </div>
+
+        <div class="code-editor-section">
+          <div class="editor-toolbar">
+            <select id="languageSelect">
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="cpp">C++</option>
+            </select>
+            <div class="editor-actions">
+              <button id="runCodeBtn" class="action-btn run">▶ Run Code</button>
+              <button id="submitCodeBtn" class="action-btn submit">
+                ✓ Submit
+              </button>
+              <button id="resetCodeBtn" class="action-btn reset">
+                ↺ Reset
+              </button>
+              <button id="hintBtn" class="action-btn hint">💡 Hint</button>
+            </div>
+          </div>
+          <div class="code-editor-wrapper">
+            <textarea id="codeEditor">
+// Write your solution here
+function twoSum(nums, target) {
+    // Your code here
+}</textarea
+            >
+          </div>
+        </div>
+
+        <div class="output-section">
+          <div class="output-tabs">
+            <button class="tab-btn active" data-tab="test-cases">
+              Test Cases
+            </button>
+            <button class="tab-btn" data-tab="output">Output</button>
+            <button class="tab-btn" data-tab="ai-feedback">AI Feedback</button>
+          </div>
+          <div class="output-content">
+            <div class="tab-content active" id="test-cases">
+              <div class="test-case">
+                <div class="test-case-header">
+                  <span class="test-case-name">Case 1</span>
+                  <span class="test-case-status pending">Pending</span>
+                </div>
+                <pre class="test-case-input">
+nums = [2,7,11,15], target = 9</pre
+                >
+                <pre class="test-case-expected">Expected: [0,1]</pre>
+              </div>
+            </div>
+            <div class="tab-content" id="output">
+              <pre>No output yet. Click "Run Code" to test your solution.</pre>
+            </div>
+            <div class="tab-content" id="ai-feedback">
+              <div class="ai-feedback-placeholder">
+                <p>
+                  🤖 AI Feedback will appear here after you submit your code.
+                </p>
+                <p>
+                  Get analysis on time complexity, space complexity, and code
+                  quality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAT ASSISTANT PANEL -->
+    <div
+      id="chatToggleBtn"
+      class="pulse-glow"
+      role="button"
+      aria-label="Open chat"
+    >
+      💬
+    </div>
+
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <h3>AI Coding Assistant</h3>
+        <button id="closeChatBtn" class="close-btn">×</button>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="msg bot slide-in">
+          <span>👋 Hello! I'm your VisionIQ coding assistant. I can:</span>
+          <ul class="ai-capabilities">
+            <li>Explain problem solutions</li>
+            <li>Review your code</li>
+            <li>Suggest optimizations</li>
+            <li>Explain algorithms</li>
+          </ul>
+          <span class="chat-time">Just now</span>
+        </div>
+      </div>
+      <div class="input-bar">
+        <input
+          id="chatInput"
+          placeholder="Ask about the problem, algorithms, or code..."
+        />
+        <button id="sendChatBtn">🚀</button>
+      </div>
+    </div>
+
+    <!-- SETTINGS PANEL (Updated for coding) -->
+    <div class="settings-panel" id="settingsPanel">
+      <h3>
+        Settings
+        <button id="closeSettings" class="close-settings-btn">✖</button>
+      </h3>
+
+      <div class="settings-category">
+        <h4>Editor Settings</h4>
+        <label for="fontSize">Font Size:</label>
+        <input type="range" id="fontSize" min="12" max="24" value="16" />
+
+        <label for="tabSize">Tab Size:</label>
+        <select id="tabSize">
+          <option value="2">2 spaces</option>
+          <option value="4" selected>4 spaces</option>
+          <option value="8">8 spaces</option>
+        </select>
+
+        <label>
+          <input type="checkbox" id="autoComplete" checked />
+          Enable Auto Complete
+        </label>
+      </div>
+
+      <div class="settings-category">
+        <h4>Preferences</h4>
+        <label for="defaultLanguage">Default Language:</label>
+        <select id="defaultLanguage">
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+          <option value="cpp">C++</option>
+        </select>
+
+        <label>
+          <input type="checkbox" id="showLineNumbers" checked />
+          Show Line Numbers
+        </label>
+      </div>
+
+      <div class="settings-category">
+        <h4>Appearance</h4>
+        <label for="editorTheme">Editor Theme:</label>
+        <select id="editorTheme">
+          <option value="default">Default</option>
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+          <option value="monokai">Monokai</option>
+        </select>
+      </div>
+    </div>
+
+    <script src="visioniq.js"></script>
+  </body>
+</html>
